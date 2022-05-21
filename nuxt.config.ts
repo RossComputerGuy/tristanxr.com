@@ -17,6 +17,9 @@ export default defineNuxtConfig({
       },
     },
   },
+  nitro: {
+    preset: 'cloudflare',
+  },
   googleFonts: {
     families: {
       Inter: true,
