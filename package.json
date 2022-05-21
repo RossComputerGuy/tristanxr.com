@@ -2,6 +2,7 @@
   "name": "@rosscomputerguy/tristanxr.com",
   "private": true,
   "scripts": {
+    "postinstall": "patch-package",
     "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
@@ -25,6 +26,7 @@
     "@intlify/nuxt3": "^0.2.2",
     "@mdi/font": "^6.7.96",
     "@nuxtjs/color-mode": "^3.0.3",
+    "patch-package": "^6.4.7",
     "vue-material-design-icons": "^5.0.0"
   },
   "devDependencies": {
