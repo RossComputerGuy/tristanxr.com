@@ -76,9 +76,23 @@
       </h4>
       <div class="grid grid-cols-1 md:grid-cols-6 my-10">
         <div class="flex flex-col col-span-2 mb-4 md:mb-0">
+          <h5 class="text-xl md:text-2xl font-bold">Jr DevOps Engineer</h5>
+          <h6 class="text-lg font-bold">Ezoic, Inc</h6>
+          <p>August 2022 - January 2023</p>
+        </div>
+        <div class="flex flex-col col-span-4">
+          <p>
+            I had the opportunity to work at Ezoic for about 6 months as a DevOps Engineer.
+            It was a great opportunity despite it being short lived. I made great friends and
+            connections along the way.
+          </p>
+        </div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-6 my-10">
+        <div class="flex flex-col col-span-2 mb-4 md:mb-0">
           <h5 class="text-xl md:text-2xl font-bold">Stocker</h5>
           <h6 class="text-lg font-bold">88 Ranch Marketplace</h6>
-          <p>March 2022 - <i>now</i></p>
+          <p>March 2022 - August 2022</p>
         </div>
         <div class="flex flex-col col-span-4">
           <p>
