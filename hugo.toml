@@ -1,0 +1,42 @@
+baseURL = 'https://tristanxr.com/'
+languageCode = 'en-us'
+title = 'Tristan Ross'
+
+[[module.imports]]
+path = 'github.com/CaiJimmy/hugo-theme-stack/v3'
+
+[params]
+favicon = '/favicon.jpg'
+
+[params.sidebar]
+emoji = '💻'
+subtitle = 'Nix, Zig, & Linux Developer'
+
+[params.sidebar.avatar]
+enabled = true
+local = true
+src = 'img/avatar.jpg'
+
+[[menu.social]]
+identifier = 'github'
+name = 'GitHub'
+url = 'https://github.com/RossComputerGuy'
+
+[menu.social.params]
+icon = 'brand-github'
+
+[[menu.social]]
+identifier = 'twitter'
+name = 'Twitter'
+url = 'https://twitter.com/RossComputerGuy'
+
+[menu.social.params]
+icon = 'brand-twitter'
+
+[[menu.social]]
+identifier = 'linkedin'
+name = 'LinkedIn'
+url = 'https://www.linkedin.com/in/tristan-ross-5408141aa/'
+
+[menu.social.params]
+icon = 'brand-linkedin'
