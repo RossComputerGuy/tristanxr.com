@@ -2,6 +2,9 @@ baseURL = 'https://tristanxr.com/'
 languageCode = 'en-us'
 title = 'Tristan Ross'
 
+[markup.goldmark.renderer]
+unsafe = true
+
 [[module.imports]]
 path = 'github.com/CaiJimmy/hugo-theme-stack/v3'
 
