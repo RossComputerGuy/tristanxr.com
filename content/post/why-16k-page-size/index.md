@@ -22,8 +22,8 @@ security but the size.
 The vast majority of users use x86 which utilizes 4k page memory. This size was great when page memory
 was first introduced along with the Intel 386 in 1985. However, our memory sizes nowadays are vastly larger.
 This means for a program to allocate something like 1GB of memory, they will need to ask the operating system
-for a certain number of pages which gets them up to 1GB. On a 4k page size system, this would be about 250 pages
-of memory. However, on a 16k page size system, this would be 63. Despite the math being 62.5, only whole pages
+for a certain number of pages which gets them up to 1GB. On a 4k page size system, this would be about 244,141 pages
+of memory. However, on a 16k page size system, this would be 61,036. Despite the math being 61035.15625, only whole pages
 can be allocated. This means the memory allocator used will have to keep that last page for other memory allocations.
 Between the 4k and 16k page sizes, it is clear that allocating a smaller number of pages can be beneficial when you
 utilize programs that often are going to be allocating memory sizes beyond 1MB. This can result in a performance
