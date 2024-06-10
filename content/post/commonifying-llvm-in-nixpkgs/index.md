@@ -2,6 +2,9 @@
 title: Commonifying LLVM in Nixpkgs
 description: How I was able to reduce complexity and technical debt in Nixpkgs for LLVM.
 date: 2024-06-08 18:16:00 +0800
+categories:
+    - llvm
+    - nix
 ---
 
 In programming, technical debt often accumulates over time. It often occurs with legacy code
