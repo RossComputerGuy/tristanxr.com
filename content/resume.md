@@ -8,7 +8,78 @@ menu:
       icon: file-text
 ---
 
+# Notable PR's
+
+## LLVM
+
+### [BOLT] Enable standalone build
+
+Allows LLVM bolt from building outside the LLVM source tree.
+
+[Link](https://github.com/llvm/llvm-project/pull/97130)
+
+### [libc] init uefi os target
+
+Implements support for building & running applications in a UEFI environment
+with the LLVM libc.
+
+[Link](https://github.com/llvm/llvm-project/pull/120687)
+
+## Nixpkgs
+
+### flutter.engine: init
+
+Packages the source built Flutter engine.
+
+[Link](https://github.com/NixOS/nixpkgs/pull/212328)
+
+### llvmPackages_{12,13,14,15,16,17,18,19,git}: commonify patches
+
+Eliminates duplicate patches by implementing a function which points
+to a specific file per each LLVM version.
+
+[Link](https://github.com/NixOS/nixpkgs/pull/333521)
+
+### llvmPackages_{12,13,14,15,16,17,18,git}: use common
+
+Several PR's to eliminate duplicate Nix files for each LLVM subpackage.
+
+[Link: clang](https://github.com/NixOS/nixpkgs/pull/303948)
+
+[Link: compiler-rt](https://github.com/NixOS/nixpkgs/pull/303479)
+
+[Link: libcxx](https://github.com/NixOS/nixpkgs/pull/303449)
+
+[Link: libunwind](https://github.com/NixOS/nixpkgs/pull/303447)
+
+[Link: llvm](https://github.com/NixOS/nixpkgs/pull/303521)
+
+[Link: openmp](https://github.com/NixOS/nixpkgs/pull/303448)
+
+### zig: commonify & bootstrap
+
+Clean up Zig's nix files to enable better use of the Zig C compiler.
+Reduces duplicate code by using a central entry point.
+
+[Link](https://github.com/NixOS/nixpkgs/pull/331011)
+
+## Zig
+
+### std: implement basic io and improve alloc in uefi
+
+Improvements to Zig's standard lib which allows for a hello world to
+be built using `std.debug.print` for UEFI. The PR also improves how the memory
+allocations are handled for UEFI.
+
+[Link](https://github.com/ziglang/zig/pull/22226)
+
 # Projects
+
+## Nixpkgs LLVM Workspace
+
+Flake workspace / repo to stage and track Nixpkgs/NixOS's ability to be compiled completely with LLVM.
+
+[Link](https://github.com/RossComputerGuy/nixpkgs-llvm-ws)
 
 ## uekit
 
@@ -18,7 +89,8 @@ A toolchain and emulator for Usagi Electric's UE-2 vacuume tube computer.
 
 ## Phantom UI
 
-A UI framework alternative to Flutter written in pure Zig, capable of working in UEFI and various other platforms.
+A UI framework alternative to Flutter written in pure Zig, capable of working in UEFI and various
+other platforms.
 
 [Link](https://github.com/PhantomUIx)
 
@@ -59,6 +131,18 @@ I learned certain necessary aspects of work such as time management and customer
 
 ## Associates of Applied Science - Portland Community College
 
-<sub>September 2020 - June 2024</sub>
+<sub>September 2020 - June 2025</sub>
 
 This degree focuses on many elementary topics for Linux, web development, and data communications.
+
+# Talks
+
+## The Nix PR Pipeline
+
+<sub>[Link](https://www.socallinuxexpo.org/scale/22x/presentations/nix-pr-pipeline)</sub>
+
+Event: SCALE 22x / Planet Nix - Room 101
+Time: 2025-03-06 10:00 - 10:30 (PST)
+
+A detailed explanation of how pull requests are staged and trickle into the
+different channels in Nixpkgs and NixOS.
