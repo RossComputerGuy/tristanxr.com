@@ -8,23 +8,28 @@ menu:
       icon: info-circle
 ---
 
-Hello, I am a 22-year old programmer from Southern California. Since I was a little kid,
+Hello, I am a 23-year old programmer from Southern California. Since I was a little kid,
 I've always had an interest in technology. When I was eleven, I wanted to build my own website.
-Since then, I've grown and improved my skills in programming. I've been actively interested in
-operating system development and started the [ExpidusOS](https://expidusos.com) project.
+Since then, I've grown and improved my skills in programming. I'm mostly active in the Nix and LLVM
+spaces. In nixpkgs, I am mostly involved in the standard environment, LLVM, Flutter, and SELinux packages.
+In LLVM, my work mostly consists of reporting issues from nixpkgs's LLVM, upstreaming patches, and working
+on the LLVM libc support.
 
-Since 2022, I've participated in other FOSS projects like Zig and Nix. I am a maintainer of the Lens
-package, updated Nix to have LLVM 17, and package the Flutter Engine all for Nix. With Zig, I've made some
-small PR's and contributed in reporting issues. A notable PR I have made to Zig is the introduction of the
-runtime page size which makes it possible to build Zig projects on Apple Silicon.
+Since 2023, I moved over from x86_64 machines to aarch64 machines. I'm an Ampere Ambassador and a
+believer in RISC architectures like RISC-V aside from ARM. My main laptop is an Apple M1 Pro and my
+desktop is an Ampere Altra Q64-22. I've also got a VisionFive 2 for RISC-V testing with Nix and a
+Raspberry Pi 4 for testing a fully LLVM built NixOS system.
 
-Between August 2022 and January 2023, I worked at Ezoic as a Jr DevOps Engineer. It was a phenominal experience
-and gave me an insight to what a career in tech will be like. Unfortunately, I was only there for half a year.
-However, I took away new skills and friendships from my time at the company. Since then, I've focused on
-finishing my associates degree. By June of 2024, I will have my AAS in CIS and plan on continuing my education
-towards a bachelor's in CIS.
+## Where to find me
 
-In Feburary of 2023, I was able to accomplish a big goal of mine which was to visit Japan. Japan is
-a country and culture which I have strong interest in. In fact, I've been learning Japanese since about late
-2021. I often use Japanese on my devices as the default language to help with immersion. A future goal of mine
-is to live in Japan.
+- Bluesky: [@thecomputerguy.bsky.social](https://bsky.app/profile/thecomputerguy.bsky.social)
+- Discord: [discord.gg/SF6asgZgTM](https://discord.com/invite/SF6asgZgTM)
+- Discourse:
+  - Ampere Community: [@thecomputerguy](https://community.amperecomputing.com/u/thecomputerguy/summary)
+  - LLVM: [@rosscomputerguy](https://discourse.llvm.org/u/rosscomputerguy/summary)
+  - NixOS: [@rosscomputerguy](https://discourse.nixos.org/u/rosscomputerguy/summary)
+- GitHub: [@RossComputerGuy](https://github.com/RossComputerGuy)
+- LinkedIn: [linkedin.com/in/tristan-ross-5408141aa](https://www.linkedin.com/in/tristan-ross-5408141aa/)
+- Mastodon: [@thecomputerguy@bitbang.social](https://bitbang.social/@thecomputerguy)
+- Matrix: [@rosscomputerguy:matrix.org](https://matrix.to/#/@rosscomputerguy:matrix.org)
+- Twitter: [@RossComputerGuy](https://twitter.com/RossComputerGuy)
