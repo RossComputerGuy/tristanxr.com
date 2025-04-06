@@ -2,6 +2,9 @@ baseURL = 'https://tristanxr.com/'
 languageCode = 'en-us'
 title = 'Tristan Ross'
 
+[taxonomies]
+category = 'categories'
+
 [markup.goldmark.renderer]
 unsafe = true
 
