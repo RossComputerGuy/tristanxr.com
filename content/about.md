@@ -33,3 +33,4 @@ Raspberry Pi 4 for testing a fully LLVM built NixOS system.
 - Mastodon: [@thecomputerguy@bitbang.social](https://bitbang.social/@thecomputerguy)
 - Matrix: [@rosscomputerguy:matrix.org](https://matrix.to/#/@rosscomputerguy:matrix.org)
 - Twitter: [@RossComputerGuy](https://twitter.com/RossComputerGuy)
+- Reddit: [u/SpaceboyRoss](https://reddit.com/u/SpaceboyRoss)
