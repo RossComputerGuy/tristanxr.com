@@ -6,13 +6,12 @@ categories:
     - riscv
 ---
 
-Back in September, I was at NixCon 2025. I was able to meet Yuning Liang, the founder of DeepComputing.
-We had previously connected on LinkedIn several months prior. I had ordered their new laptop, the DC ROMA II.
-It has an ESWIN EIC7700X, an SoC with 8 out of order execution RV64GBC cores. This is a huge upgrade compared
-to the 4 in-order execution cores on the JH7110 that the VisionFive 2 uses. After coming back from a trip
-to Portland on the 8th, I started looking into getting Nix & NixOS working on it. Surely since I am able
-to port NixOS to things like the FydeTab Duo and get a VisionFive 2 to work, I should be able to get this system
-working.
+At NixCon 2025, I had the pleasure of meeting the Founder of DeepComputing, Yuning Liang.
+I was excited as I ordered their new laptop, the DC ROMA II, a few months prior. It has an ESWIN EIC7700X,
+an SoC with 8 out of order execution RV64GBC cores. This is a huge upgrade compared to the 4 in-order
+execution cores on the JH7110 that the VisionFive 2 uses. I started looking into getting Nix & NixOS working
+on it shortly after receiving it. Surely since I am able to port NixOS to things like the FydeTab Duo and get
+a VisionFive 2 to work, I should be able to get this system working.
 
 The first thing I did was install Nix, however there's no prebuilt binaries for Nix that the installer script
 utilizes. I took a look at the installer script and found a convinient option called `--tarball-url-prefix`.
@@ -23,16 +22,16 @@ I managed to even point `--tarball-url-prefix` to
 [`nix-2.33.0pre20251111_af0ac14-riscv64-linux.tar.xz`](https://hydra.nixos.org/build/312888635/download/1/nix-2.33.0pre20251111_af0ac14-riscv64-linux.tar.xz).
 Once I ran the installer, the installation experience was smooth. I restarted the shell and ran `nix --version` which told me that I have 2.33.0.
 
-After installing Nix, I decided to try building `nix-info`. I ran `nix-shell -p nix-info` and it was off to a smooth start.
-However, that soon changed as the `bootstrap-tools` failed to build. I realized this is a big problem, the `bootstrap-tools`
-derivation is a crucial part of the nixpkgs bootstrap process. I takes a pre-built tarball of various tools like `coreutils`,
-`gcc`, `patchelf`, and a subset of `binutils`. It provides the necessary commands to bootstrap nixpkgs from a small footprint
-and in a sandboxed environment. I managed to cross compile a new bootstrap tools tarball on my Ampere desktop, copied that over
-and hacked around `import <nix/fetchurl.nix>` so it did `url = "file://${./bootstrap-tools.tar.xz}";`. This allowed me to use
-the new bootstrap tools. Once that was done, I attempted another build and the bootstrap tools managed to build. However, this
-was only a temporary victory.
+After installing Nix, I decided to try building `nix-info`. I ran `nix-shell -p nix-info` which seemed to start smoothly,
+but was quickly interrupted as bootstrap-tools failed to build. This is a big problem, as the `bootstrap-tools` derivation is
+a crucial part of the nixpkgs bootstrap process. It takes a pre-built tarball of various tools like `coreutils`, `gcc`, `patchelf`,
+and a subset of `binutils`. It provides the necessary commands to bootstrap nixpkgs from a small footprint and in a sandboxed
+environment. I managed to cross compile a new bootstrap tools tarball on my Ampere desktop, copied that over and hacked around
+`import <nix/fetchurl.nix>` so it did `url = "file://${./bootstrap-tools.tar.xz}";` instead of fetching from the tarballs server.
+This allowed me to use the new bootstrap tools. Once that was done, I attempted another build and the bootstrap tools managed to build.
+However, this was only a temporary victory.
 
-After chatting with other contributors, there's an issue in nixpkgs regarding PIE. PIE is a method of allowing programs
+After chatting with other NixOS contributors, it turns there's an issue in nixpkgs regarding PIE. PIE is a method of allowing programs
 to be relocated. This is useful on systems with limited address spaces and helps prevent libraries from colliding due to
 occupying the same address. The issue was discovered by using `strace -E LD_DEBUG=all` on GCC. This revealed the following logs:
 
@@ -125,10 +124,10 @@ What this means is the kernel is doing the following steps:
     - If the address is higher, succeeds
 4. Executes
 
-This is roughly an oversimplified explanation of how a program is loaded.
-So we know PIE is not set, however there's the other problem. This would be a good time to look at the other problem.
-I ran `cat /proc/sys/vm/mmap_min_addr` and got back 65536. Now that explains what's going on, the address we're trying to have
-mapped is lower than what the kernel is permitting. I decided to try `sysctl -w vm.mmap_min_addr=4096` and ran the build again.
+This is roughly an oversimplified explanation of how a program is loaded. So we know PIE is not set, however there's
+the other problem. I ran `cat /proc/sys/vm/mmap_min_addr` and got back 65536. Now that explains what's going on, the
+address we're trying to have mapped is lower than what the kernel is permitting. I decided to try `sysctl -w vm.mmap_min_addr=4096`
+and ran the build again.
 
 After attempting to build again, everything continued to work. The next thing to do will be fixing PIE on RISC-V in nixpkgs but
 that'll be a future thing to do. Until then, I'll be making progress on getting NixOS to boot.
